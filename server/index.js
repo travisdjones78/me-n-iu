@@ -7,6 +7,8 @@ const PORT = 3005
 const path = require('path')
 const cors = require('cors')
 
+const breedRouter = require("./router/breedRouter")
+
 app.use(express.json())
 app.use(bodyParser.json())
 app.use(express.static(path.join(__dirname, "public")))
@@ -18,6 +20,9 @@ app.use((rec, res, next) => {
 app.get("/",(req,res)=>{
     res.send("wjsdhf")
 })
+
+app.get("/breeds",breedRouter)
+
 app.listen(PORT, () => {
     console.log(`server runnin on ${PORT}`)
 })
