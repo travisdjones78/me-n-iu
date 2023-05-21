@@ -5,8 +5,9 @@ import "./App.css"
 import { Row, Col, Container, Card } from "react-bootstrap";
 import apis from "./api/index";
 import api from "./api/apis";
-import Forms from "./components/Form";
+import Forms from "./components/form";
 import Modal from "./components/Modal";
+import Header from "./components/header";
 
 const App = () => {
   const [chosenForm, setChosenForm] = useState('')
@@ -54,7 +55,8 @@ const App = () => {
   }, [])
   return (
     <>
-      <h1>BUDS BREED</h1>
+      {/* <h1>BUDS BREED</h1> */}
+      <Header></Header>
       <button className='btn btn-dark btn-sm' onClick={showForm}>Create</button>
       <Forms
         chosenForm={chosenForm}
