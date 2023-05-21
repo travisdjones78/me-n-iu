@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const allBreeds = () => axios.get("/breed/read")
-// console.log(allBreeds())
+const createBreed= payLoad=> axios.post('/breed/create',payLoad)
 const apis = {
 allBreeds
 }

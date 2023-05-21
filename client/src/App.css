@@ -19,9 +19,8 @@ h1 {
   border: solid yellow 6px!important;
 }
 
-
-
-/* .info{
-  color: blue !important;
-  text-shadow: 4px 4px 8px solid yellow !important;
-} */
+.topBar {
+  width: 100%;
+  background-color: black;
+  height: fit-content;
+}

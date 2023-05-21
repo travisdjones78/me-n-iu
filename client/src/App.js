@@ -10,6 +10,10 @@ const App = () => {
   const [chosenForm, setChosenForm] = useState('')
   const [show, setShow] = useState(false);
   const [modalTitle, setModalTitle] = useState('')
+  const [breedInfo, setBreedInfo] = useState('')
+  const [pictureInfo, setPictureInfo] = useState('')
+  const [dogInfo, setDogInfo] = useState('')
+  const [ownerInfo, setOwnerInfo] = useState('')
 
   const ownerRef = useRef(null)
   const pictureRef = useRef(null)
@@ -24,10 +28,40 @@ const App = () => {
   const selectRef = useRef(null)
   const dogRef = useRef(null)
 
-  const getBreedInfo = async () => { }
-  const getDogInfo = async () => { }
-  const getPictureInfo = async () => { }
-  const getOwnerInfo = async () => { }
+  const getBreedInfo = (e) => {
+    e.preventDefault()
+    const payLoad = {
+      originated: breedOriginRef.current.value,
+      picture: pictureRef.current.value,
+      name: nameRef.current.value
+    }
+    setBreedInfo(payLoad)
+  }
+  const getPictureInfo = (e) => {
+    e.preventDefault()
+    const payLoad = {
+      subjectId: subjectRef.current.value,
+      path: pathRef.current.value
+    }
+    setPictureInfo(payLoad)
+  }
+  const getDogInfo = (e) => {
+    e.preventDefault()
+    const payLoad = {
+      breed: dogBreedRef.current.value,
+      picture: dogPictureRef.current.value,
+      owner: dogOwnerRef.current.value
+    }
+    setDogInfo(payLoad)
+  }
+  const getOwnerInfo = (e) => {
+    e.preventDefault()
+    const payLoad = {
+      picture: ownerPictureRef.current.value,
+      dogs: dogRef.current.value
+    }
+    setOwnerInfo(payLoad)
+  }
 
   const showForm = () => {
     setShow(true)
@@ -43,9 +77,10 @@ const App = () => {
   }, [])
   return (
     <>
-      {/* <h1>BUDS BREED</h1> */}
       <Header></Header>
-      <button className='btn btn-dark btn-sm' onClick={showForm}>Create</button>
+      <div className='topBar row'>
+        <button className='btn btn-dark btn-sm col-3' onClick={showForm}>Create</button>
+      </div>
 
       <div className='container'>
         <div className=' card mb-3 col-md-3 m-1' >

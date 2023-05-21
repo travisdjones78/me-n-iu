@@ -1,10 +1,12 @@
 const mongoose = require("mongoose")
-const { Schema }  = mongoose
+const { Schema } = mongoose
 
 const PictureSchema = new Schema({
-    subjectId:{type:mongoose.Schema.Types.ObjectId,ref:"pictures"},
-    ref:breed,
-    path:String
+    subjectId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "pictures"
+    },
+    path: String
 })
 
 const pictures = mongoose.model("pictures", PictureSchema)

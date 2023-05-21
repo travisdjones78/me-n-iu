@@ -8,7 +8,7 @@ const Header = () => {
         <>
             <Container className="header">
                 <Row>
-                    <Col><h1 class="title">Bud's Breed</h1></Col>
+                    <Col><h1 className="title">Bud's Breed</h1></Col>
                 </Row>
               
             </Container>
