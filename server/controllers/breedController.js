@@ -1,13 +1,25 @@
 const Breed = require("../models/breedModel")
-const getAllBreeds = async (req, res) => {
+const get_all_breeds = async (req, res) => {
     try {
         console.log("sfv")
-        res.status(200).json({ msg: "success" })
+        return res.status(200).json({ msg: "success" })
     } catch (error) {
-        res.status(500).json({ msg: "failure" })
+        return res.status(500).json({ msg: "failure" })
     }
 }
 
+const create_breed = async (req, res) => {
+    try {
+        res.status(200).json({ msg: 'words' })
+    } catch (error) {
+        res.status(500).json({ msg: 'failure', error })
+    }
+}
+
+
+
+
 module.exports = {
-    getAllBreeds
+    get_all_breeds,
+    create_breed
 }

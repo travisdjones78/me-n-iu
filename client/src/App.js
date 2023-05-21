@@ -1,21 +1,26 @@
 
 import './App.css';
-import  apis  from "./api/index";
 import React, { useEffect } from "react";
-function App() {
+import apis from "./api/index";
+import api from "./api/apis";
+
+const App = () => {
 
 
-  const allBreeds = async () =>{
-    const breedInfo = await apis.allBreeds()
-
-    // console.log(allBreeds)
+  const allBreeds = async () => {
+    // const breedInfo = await apis.allBreeds()
+// const newCatalog = await api.makeit()
+    console.log('new',newCatalog)
   }
-  useEffect(()=>{
+  
+  useEffect(() => {
     allBreeds()
-  },[])
-  return (<>
-  ;
-  </>)
+  }, [])
+  return (
+    <>
+
+    </>
+  )
 }
 
 export default App;
