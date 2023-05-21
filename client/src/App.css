@@ -1,10 +1,22 @@
 body {
   background-color: blue;
-  /* color: yellow; */
+  color: yellow;
 }
 h1 {
   text-align: center;
   
+}
+.title{
+  padding:.5rem;
+  margin: 1rem;
+  
+}
+
+.head {
+  height:3rem;
+  width: auto;
+  /* background-color: slateblue; */
+  border: solid yellow 6px!important;
 }
 
 

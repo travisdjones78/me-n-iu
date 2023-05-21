@@ -1,10 +1,10 @@
 
 import './App.css';
 import React, { useEffect, useRef, useState } from "react";
-import "./App.css"
 import apis from "./api/index";
 import Forms from "./components/Form";
 import Modal from "./components/Modal";
+import Header from "./components/header";
 
 const App = () => {
   const [chosenForm, setChosenForm] = useState('')
@@ -43,7 +43,8 @@ const App = () => {
   }, [])
   return (
     <>
-      <h1>BUDS BREED</h1>
+      {/* <h1>BUDS BREED</h1> */}
+      <Header></Header>
       <button className='btn btn-dark btn-sm' onClick={showForm}>Create</button>
 
       <div className='container'>
