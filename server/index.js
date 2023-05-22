@@ -3,6 +3,7 @@ require('colors')
 const express = require('express')
 const path = require('path')
 const breedRouter = require('./router/breedRouter')
+require('./router/jsonRouter')
 const PORT = process.env.PORT || 3005
 const app = express()
 
@@ -20,7 +21,11 @@ app.use((err, req, res, next) => {
     console.error(err.stack)
     res.sendStatus(500)
 })
-
+app.use((req, res, next) => {
+    const { method, url } = req;
+    console.log('|Server Log **|=>'.red, `Method: ${method} URL: ${url}`.green);
+    next();
+  });
 app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname, '/public/index.html'));
 });

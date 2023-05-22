@@ -1,4 +1,3 @@
-
 import './App.css';
 import React, { useEffect, useRef, useState } from "react";
 import apis from "./api/index";
@@ -14,6 +13,7 @@ const App = () => {
   const [pictureInfo, setPictureInfo] = useState('')
   const [dogInfo, setDogInfo] = useState('')
   const [ownerInfo, setOwnerInfo] = useState('')
+  const [doggyInfo, setDoggyInfo] = useState([])
 
   const ownerRef = useRef(null)
   const pictureRef = useRef(null)
@@ -36,6 +36,7 @@ const App = () => {
       name: nameRef.current.value
     }
     setBreedInfo(payLoad)
+    // createBreedDb()
   }
   const getPictureInfo = (e) => {
     e.preventDefault()
@@ -72,9 +73,31 @@ const App = () => {
     setChosenForm(selectRef.current.value)
   }
 
+  const createBreedDb = async (e) => {
+    e.preventDefault()
+    const payLoad = {
+      originated: breedOriginRef.current.value,
+      picture: pictureRef.current.value,
+      name: nameRef.current.value
+    }
+    const breeds = await apis.createBreed(payLoad)
+    console.log(breeds)
+  }
+
+  const allDogs = async () => {
+    const dogData = await apis.dogList()
+    setDoggyInfo(dogData)
+  }
+
+  const allBreeds = async () => {
+    const newbreeds = await apis.allBreeds()
+    // console.log(newbreeds)
+
+  }
   useEffect(() => {
     // allBreeds()
-  }, [])
+    allDogs()
+  }, [doggyInfo])
   return (
     <>
       <Header></Header>
@@ -82,17 +105,21 @@ const App = () => {
         <button className='btn btn-dark btn-sm col-3' onClick={showForm}>Create</button>
       </div>
 
-      <div className='container'>
-        <div className=' card mb-3 col-md-3 m-1' >
-          <img src='' className="card-img-top" alt="..." />
-          <div className='card'>
-            <div className="card-body">
-              <h5 className="info">title</h5>
-              <p className="card-text">description</p>
-              <p className="card-text"><small className="text-muted">price</small></p>
+      <div className='container row text-center'>
+        {doggyInfo.map((info, idx) => {
+          // const newName =`/breedPics/${info[0]}`
+          return <div className=' card m-1  col-sm-3 ' key={idx}>
+            <img src={info[1]} className="card-img-top dogImg" alt="..." />
+            <div className='card'>
+              <div className="card-body">
+                <h5 className="info">{info[0]}</h5>
+                <p className=" text-dark">{info[2]}</p>
+                <p className="card-text"><small className="text-muted">price</small></p>
+              </div>
             </div>
           </div>
-        </div>
+        })}
+
       </div>
 
       <Modal
@@ -124,7 +151,9 @@ const App = () => {
           getDogInfo={getDogInfo}
           getOwnerInfo={getOwnerInfo}
           getPictureInfo={getPictureInfo}
-          dogRef={dogRef} />
+          dogRef={dogRef}
+          createBreedDb={createBreedDb}
+        />
       </Modal>
     </>
   )

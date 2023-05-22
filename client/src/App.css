@@ -24,3 +24,16 @@ h1 {
   background-color: black;
   height: fit-content;
 }
+
+.info{
+  color: blue;
+}
+
+.dogImg{
+  width: 50%;
+}
+
+.textInfo{
+  color: black !important;
+}
+

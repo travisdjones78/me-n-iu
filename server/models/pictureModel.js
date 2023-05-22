@@ -2,13 +2,18 @@ const mongoose = require("mongoose")
 const { Schema } = mongoose
 
 const PictureSchema = new Schema({
+    subjects: {
+        type: String,
+        required: true,
+        enum: ['breed', 'dog', 'owner']
+    },
     subjectId: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "pictures"
+        refPath: 'subjects'
     },
     path: String
 })
 
-const pictures = mongoose.model("pictures", PictureSchema)
+const Pictures = mongoose.model("pictures", PictureSchema)
 
-module.exports = pictures
+module.exports = Pictures

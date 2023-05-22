@@ -1,3 +1,6 @@
+
+import '../App.css';
+
 const Forms = ({
   chosenForm,
   ownerRef,
@@ -14,12 +17,13 @@ const Forms = ({
   getDogInfo,
   getOwnerInfo,
   getPictureInfo,
-  dogRef
+  dogRef,
+  createBreedDb
 }) => {
 
   return (<>
     {(chosenForm === 'breed')
-      ? <form onSubmit={getBreedInfo}>
+      ? <form onSubmit={createBreedDb}>
         <div className="form-group">
           <label>Breed Origin</label>
           <input type="date" ref={breedOriginRef} className='form-control'></input>
@@ -81,9 +85,9 @@ const Forms = ({
                 <div className="form-group"></div>
                 <label>Owner</label>
                 <input type="text" ref={dogOwnerRef} className='form-control'></input>
-              <div className="btn-group">
-                <button className="btn btn-primary my-2" type="submit">Submit Dog</button>
-              </div>
+                <div className="btn-group">
+                  <button className="btn btn-primary my-2" type="submit">Submit Dog</button>
+                </div>
               </form>
             </div>
             : ''
