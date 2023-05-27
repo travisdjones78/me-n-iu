@@ -8,7 +8,7 @@ const OwnerSchema = new Schema({
     },
     dogs: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "dogs"
+        ref: "dog"
     },
 
 })

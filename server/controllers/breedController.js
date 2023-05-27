@@ -1,23 +1,26 @@
 const Breed = require("../models/breedModel")
+const Picture = require('../models/pictureModel')
 
-// console.log(Breed)
 
 const get_all_breeds = async (req, res) => {
     try {
-        // const breedData = await Breed.find({})
+        const breedData = await Breed.find({})
         return res.status(200).json({ msg: "success", breedData })
+        // return res.status(200).json({ msg: "success"})
     } catch (error) {
         return res.status(500).json({ msg: "failure", error })
     }
 }
 
 const create_breed = async (req, res) => {
-
-    // console.log(req.body)
     try {
-        const breedData = Breed.create(req.body)
+        const breedData = await Breed.create(req.body)
+        // const picData = await (await Picture.create({path:breedData.picture})).populate('dog')
+        // console.log(picData)
+        // console.log({path:req.body.picture,subjectId:'dog'})
+        // console.log(breedData)
         // return res.status(200).json({ msg: 'success', breedData })
-        // return res.status(200).json({ msg: 'success',body:req.body })
+        // return res.status(200).json({ msg: 'success' })
     } catch (error) {
         return res.status(500).json({ msg: 'failure', error: error.response })
     }

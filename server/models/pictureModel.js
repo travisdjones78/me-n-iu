@@ -14,6 +14,6 @@ const PictureSchema = new Schema({
     path: String
 })
 
-const Pictures = mongoose.model("pictures", PictureSchema)
+const Pictures = mongoose.model("picture", PictureSchema)
 
 module.exports = Pictures

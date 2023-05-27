@@ -1,6 +1,7 @@
 body {
   background-color: blue;
   color: yellow;
+  text-shadow: 2px 2px 2px black;
 }
 h1 {
   text-align: center;

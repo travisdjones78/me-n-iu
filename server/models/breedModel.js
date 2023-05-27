@@ -5,11 +5,13 @@ const BreedSchema = new Schema({
     originated: {
         type: Date
     },
-    picture: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "pictures"
-    },
-    name: String
+    picture: String,
+    // picture: {
+    //     type: mongoose.Schema.Types.ObjectId,
+    //     ref: "pictures"
+    // },
+    name: String,
+    info: String
 })
 
 const Breeds = mongoose.model("breed", BreedSchema)

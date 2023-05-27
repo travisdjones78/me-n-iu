@@ -12,8 +12,6 @@ mongoose.connection.on('connected', async () => {
     `Mongoose connected to ${connectionString} 
     `,
     '=========',
-    // 'Hope you enjoy MatchMaker!'.america.bold,
-    // '=========\n',
   );
 });
 

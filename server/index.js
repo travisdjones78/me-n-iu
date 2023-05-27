@@ -1,9 +1,9 @@
 require('./connection/db')
 require('colors')
+require('./router/jsonRouter')
 const express = require('express')
 const path = require('path')
 const breedRouter = require('./router/breedRouter')
-require('./router/jsonRouter')
 const PORT = process.env.PORT || 3005
 const app = express()
 

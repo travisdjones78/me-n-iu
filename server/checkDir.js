@@ -1,23 +1,21 @@
 const path = require('path');
 const fs = require('fs');
 let directoryPath = path.join(__dirname, '../client/public/breedPics/');
+const list = []
+const list2 = []
 let newPath = ''
 try {
     newPath = fs.readdirSync(`${directoryPath}`)
 } catch (e) {
 }
 newPath.shift()
-// console.log('n',newPath)
 
 let reload = []
 const upgrade = fs.readdirSync('../client/public/breedPics/', (err, data) => {
     reload.push(...data)
     return reload
 })
-// console.log(data)
-// upgrade
-const list = []
-const list2 = []
+
 upgrade.shift()
 
 fs.readdirSync(`../client/public/breedPics/${upgrade[1]}`, (err, data) => {
